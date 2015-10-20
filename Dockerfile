@@ -2,7 +2,7 @@ FROM debian
 
 MAINTAINER Tobias Munk <schmunk@usrbin.de>
 
-# Install system packages for PHP extensions required for Yii 2.0 Framework
+# Install system packages
 RUN apt-get update && \
     apt-get -y install \
             curl \
