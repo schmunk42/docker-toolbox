@@ -1,7 +1,9 @@
 2.0.0
 -----
 
-in progress
+- `docker 1.9.0`
+- `docker-compose 1.5.0`
+- `docker-machine 0.5.0`
 
 1.0.0
 -----
