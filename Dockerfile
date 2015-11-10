@@ -28,3 +28,5 @@ RUN curl -L https://github.com/docker/compose/releases/download/1.5.0/docker-com
 
 RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.9.0 > /opt/local/bin/docker && \
     chmod +x /opt/local/bin/docker
+
+ENV PATH=/opt/local/bin:$PATH
