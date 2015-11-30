@@ -7,11 +7,12 @@ RUN apt-get update && \
     apt-get -y install \
             curl \
             ca-certificates \
+            expect \
+            make \
+            nano \
             openssh-client \
             sshpass \
             unzip \
-            make \
-            nano \
         --no-install-recommends && \
     rm -r /var/lib/apt/lists/* # 151110
 
