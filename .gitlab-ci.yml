@@ -9,9 +9,3 @@ test:
     - docker run toolbox docker-machine version
     - docker run toolbox docker-compose version
     - docker run toolbox docker --version
-
-deploy:
-  stage: deploy
-  script:
-    - docker tag -f toolbox schmunk42/docker-toolbox
-    - docker push schmunk42/docker-toolbox
