@@ -8,8 +8,7 @@ test:
   script:
     - docker run toolbox docker-machine version
     - docker run toolbox docker-compose version
-    - set +e
-    - docker run toolbox docker version
+    - docker run toolbox --version
 
 deploy:
   stage: deploy
