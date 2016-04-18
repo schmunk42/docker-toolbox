@@ -25,7 +25,10 @@ RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.9.1 > /opt/local
 RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.10.3 > /opt/local/bin/docker-1.10.3 && \
     chmod +x /opt/local/bin/docker-1.10.3
 
-RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.11.0 > /opt/local/bin/docker-1.11.0 && \
+RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.11.0.tgz > /tmp/docker-1.11.0.tgz && \
+    cd /tmp && tar -xzf ./docker-1.11.0.tgz && \
+    rm /tmp/docker-1.11.0.tgz && \
+    mv /tmp/docker/docker /opt/local/bin/docker-1.11.0 && \
     chmod +x /opt/local/bin/docker-1.11.0
 
 # Docker machine
@@ -44,7 +47,7 @@ RUN curl -L https://github.com/docker/compose/releases/download/1.7.0/docker-com
 
 ENV PATH=/opt/local/bin:$PATH
 
-RUN ln -s /opt/local/bin/docker-1.11.0 /opt/local/bin/docker
+RUN ln -s /opt/local/bin/docker-1.11.0/docker /opt/local/bin/docker
 RUN ln -s /opt/local/bin/docker-machine-0.7.0 /opt/local/bin/docker-machine
 RUN ln -s /opt/local/bin/docker-compose-1.7.0 /opt/local/bin/docker-compose
 
