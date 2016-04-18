@@ -12,7 +12,8 @@ see [CHANGELOG](CHANGELOG.md) for a version overview
 
 ## Why did we build it?
 
-This Docker image is for mainly for usage with remote-hosts.
+This Docker image is for mainly for usage in continuous integration 
+systems and remote-hosts.
 
 
 Resources
