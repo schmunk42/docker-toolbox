@@ -47,7 +47,7 @@ RUN curl -L https://github.com/docker/compose/releases/download/1.7.0/docker-com
 
 ENV PATH=/opt/local/bin:$PATH
 
-RUN ln -s /opt/local/bin/docker-1.11.0/docker /opt/local/bin/docker
+RUN ln -s /opt/local/bin/docker-1.11.0 /opt/local/bin/docker
 RUN ln -s /opt/local/bin/docker-machine-0.7.0 /opt/local/bin/docker-machine
 RUN ln -s /opt/local/bin/docker-compose-1.7.0 /opt/local/bin/docker-compose
 
