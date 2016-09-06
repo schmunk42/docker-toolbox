@@ -54,6 +54,12 @@ RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.12.1.tgz > /tmp/
 RUN curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /opt/local/bin/docker-compose-1.8.0 && \
     chmod +x /opt/local/bin/docker-compose-1.8.0
 
+RUN curl -L https://experimental.docker.com/builds/Linux/x86_64/docker-1.12.1.tgz > /tmp/docker-1.12.1-experimental.tgz && \
+    cd /tmp && tar -xzf ./docker-1.12.1-experimental.tgz && \
+    rm /tmp/docker-1.12.1-experimental.tgz && \
+    mv /tmp/docker/docker /opt/local/bin/docker-1.12.1-experimental && \
+    chmod +x /opt/local/bin/docker-1.12.1-experimental
+
 
 ENV PATH=/opt/local/bin:$PATH
 
