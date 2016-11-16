@@ -1,7 +1,7 @@
 Changelog Version overview
 --------------------------
 
-| *toolbox* | docker    | compose | machine |
+| *toolbox* | docker (client) | compose | machine |
 |-----------|-----------|---------|---------|
 | 1.0.0     | 1.8.2     | 1.4.2   | 0.4.0   |
 | 2.0.0     | 1.9.0     | 1.5.0   | 0.5.0   |
