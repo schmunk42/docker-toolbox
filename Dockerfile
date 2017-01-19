@@ -46,28 +46,28 @@ RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.11.2.tgz > /tmp/
 # v5
 RUN curl -L https://github.com/docker/machine/releases/download/v0.8.2/docker-machine-`uname -s`-`uname -m` >/opt/local/bin/docker-machine-0.8.2 && \
     chmod +x /opt/local/bin/docker-machine-0.8.2
-RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.12.3.tgz > /tmp/docker-1.12.3.tgz && \
-    cd /tmp && tar -xzf ./docker-1.12.3.tgz && \
-    rm /tmp/docker-1.12.3.tgz && \
-    mv /tmp/docker/docker /opt/local/bin/docker-1.12.3 && \
-    chmod +x /opt/local/bin/docker-1.12.3
+RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.12.6.tgz > /tmp/docker-1.12.6.tgz && \
+    cd /tmp && tar -xzf ./docker-1.12.6.tgz && \
+    rm /tmp/docker-1.12.6.tgz && \
+    mv /tmp/docker/docker /opt/local/bin/docker-1.12.6 && \
+    chmod +x /opt/local/bin/docker-1.12.6
 RUN curl -L https://github.com/docker/compose/releases/download/1.8.1/docker-compose-`uname -s`-`uname -m` > /opt/local/bin/docker-compose-1.8.1 && \
     chmod +x /opt/local/bin/docker-compose-1.8.1
 
 # dev
-RUN curl -L https://github.com/docker/machine/releases/download/v0.9.0-rc1/docker-machine-`uname -s`-`uname -m` >/opt/local/bin/docker-machine-0.9.0-rc1 && \
-    chmod +x /opt/local/bin/docker-machine-0.9.0-rc1
-RUN curl -L https://experimental.docker.com/builds/Linux/x86_64/docker-1.12.3.tgz > /tmp/docker-1.12.3-experimental.tgz && \
-    cd /tmp && tar -xzf ./docker-1.12.3-experimental.tgz && \
-    rm /tmp/docker-1.12.3-experimental.tgz && \
-    mv /tmp/docker/docker /opt/local/bin/docker-1.12.3-experimental && \
-    chmod +x /opt/local/bin/docker-1.12.3-experimental
-RUN curl -L https://github.com/docker/compose/releases/download/1.9.0-rc4/docker-compose-`uname -s`-`uname -m` > /opt/local/bin/docker-compose-1.9.0-rc4 && \
-    chmod +x /opt/local/bin/docker-compose-1.9.0-rc4
+RUN curl -L https://github.com/docker/machine/releases/download/v0.9.0/docker-machine-`uname -s`-`uname -m` >/opt/local/bin/docker-machine-0.9.0 && \
+    chmod +x /opt/local/bin/docker-machine-0.9.0
+RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.13.0.tgz > /tmp/docker-1.13.0.tgz && \
+    cd /tmp && tar -xzf ./docker-1.13.0.tgz && \
+    rm /tmp/docker-1.13.0.tgz && \
+    mv /tmp/docker/docker /opt/local/bin/docker-1.13.0 && \
+    chmod +x /opt/local/bin/docker-1.13.0
+RUN curl -L https://github.com/docker/compose/releases/download/1.10.0/docker-compose-`uname -s`-`uname -m` > /opt/local/bin/docker-compose-1.10.0 && \
+    chmod +x /opt/local/bin/docker-compose-1.10.0
 
 ENV PATH=/opt/local/bin:$PATH
 
-RUN ln -s /opt/local/bin/docker-1.12.3 /opt/local/bin/docker
+RUN ln -s /opt/local/bin/docker-1.12.6 /opt/local/bin/docker
 RUN ln -s /opt/local/bin/docker-machine-0.8.2 /opt/local/bin/docker-machine
 RUN ln -s /opt/local/bin/docker-compose-1.8.1 /opt/local/bin/docker-compose
 
