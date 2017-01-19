@@ -14,5 +14,5 @@ test:
   stage: test
   script:
     - docker-compose run --rm toolbox docker-machine version
-    - docker-compose run --rm toolbox docker-compose version
     - docker-compose run --rm toolbox docker --version
+    - docker-compose run --rm toolbox docker-compose version
