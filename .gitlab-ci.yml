@@ -1,4 +1,5 @@
 before_script:
+  - export COMPOSE_PROJECT_NAME=buildpipeline${CI_PIPELINE_ID}
   - docker-compose ps
 
 after_script:
