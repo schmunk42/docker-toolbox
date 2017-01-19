@@ -1,11 +1,11 @@
 build:
   stage: build
   script:
-    - docker build -t toolbox .
+    - docker-compose build --pull
 
 test:
   stage: test
   script:
-    - docker run toolbox docker-machine version
-    - docker run toolbox docker-compose version
-    - docker run toolbox docker --version
+    - docker-compose run --rm toolbox docker-machine version
+    - docker-compose run --rm toolbox docker-compose version
+    - docker-compose run --rm toolbox docker --version
