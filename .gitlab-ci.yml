@@ -3,16 +3,13 @@ before_script:
   - docker-compose ps
 
 after_script:
-  - docker-compose ps
-
-build:
-  stage: build
-  script:
-    - docker-compose build --pull
+  - export COMPOSE_PROJECT_NAME=buildpipeline${CI_PIPELINE_ID}
+  - docker-compose down -v
 
 test:
   stage: test
   script:
+    - docker-compose build --pull
     - docker-compose run --rm toolbox ls -la /opt/local/bin
     - docker-compose run --rm toolbox docker-machine version
     - docker-compose run --rm toolbox docker --version
