@@ -50,10 +50,22 @@ RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz > /tmp/
 RUN curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /opt/local/bin/docker-compose-1.11.2 && \
     chmod +x /opt/local/bin/docker-compose-1.11.2
 
+# v6.1
+ENV MACHINE_VERSION_CURRENT=0.12.0 \
+    DOCKER_VERSION_CURRENT=17.05.0-ce \
+    COMPOSE_VERSION_CURRENT=1.13.0
+RUN curl -L https://github.com/docker/machine/releases/download/v${MACHINE_VERSION_CURRENT}/docker-machine-`uname -s`-`uname -m` >/opt/local/bin/docker-machine-${MACHINE_VERSION_CURRENT} && \
+    chmod +x /opt/local/bin/docker-machine-${MACHINE_VERSION_CURRENT}
+RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION_CURRENT}.tgz > /tmp/docker-${DOCKER_VERSION_CURRENT}.tgz && \
+    cd /tmp && tar -xzf ./docker-${DOCKER_VERSION_CURRENT}.tgz && \
+    rm /tmp/docker-${DOCKER_VERSION_CURRENT}.tgz && \
+    mv /tmp/docker/docker /opt/local/bin/docker-${DOCKER_VERSION_CURRENT} && \
+    chmod +x /opt/local/bin/docker-${DOCKER_VERSION_CURRENT}
+RUN curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION_CURRENT}/docker-compose-`uname -s`-`uname -m` > /opt/local/bin/docker-compose-${COMPOSE_VERSION_CURRENT} && \
+    chmod +x /opt/local/bin/docker-compose-${COMPOSE_VERSION_CURRENT}
 
+RUN ln -s /opt/local/bin/docker-machine-${MACHINE_VERSION_CURRENT} /opt/local/bin/docker-machine
+RUN ln -s /opt/local/bin/docker-${DOCKER_VERSION_CURRENT} /opt/local/bin/docker
+RUN ln -s /opt/local/bin/docker-compose-${COMPOSE_VERSION_CURRENT} /opt/local/bin/docker-compose
 
 ENV PATH=/opt/local/bin:$PATH
-
-RUN ln -s /opt/local/bin/docker-1.13.1 /opt/local/bin/docker
-RUN ln -s /opt/local/bin/docker-machine-0.10.0 /opt/local/bin/docker-machine
-RUN ln -s /opt/local/bin/docker-compose-1.11.2 /opt/local/bin/docker-compose
