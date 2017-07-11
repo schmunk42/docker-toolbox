@@ -52,7 +52,7 @@ RUN curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-co
     chmod +x /opt/local/bin/docker-compose-1.11.2
 
 # v6.1
-ENV MACHINE_VERSION_CURRENT=0.12.0 \
+ENV MACHINE_VERSION_CURRENT=0.12.1 \
     DOCKER_VERSION_CURRENT=17.05.0-ce \
     COMPOSE_VERSION_CURRENT=1.13.0
 RUN curl -L https://github.com/docker/machine/releases/download/v${MACHINE_VERSION_CURRENT}/docker-machine-`uname -s`-`uname -m` >/opt/local/bin/docker-machine-${MACHINE_VERSION_CURRENT} && \
