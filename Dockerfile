@@ -22,16 +22,19 @@ RUN apt-get update \
 RUN mkdir -p /opt/local/bin
 
 # v7.0
-ENV MACHINE_VERSION_CURRENT=0.12.1 \
+ENV MACHINE_VERSION_CURRENT=0.12.2 \
     DOCKER_VERSION_CURRENT=17.05.0-ce \
-    COMPOSE_VERSION_CURRENT=1.14.0
+    COMPOSE_VERSION_CURRENT=1.16.1
+
 RUN curl -L https://github.com/docker/machine/releases/download/v${MACHINE_VERSION_CURRENT}/docker-machine-`uname -s`-`uname -m` >/opt/local/bin/docker-machine-${MACHINE_VERSION_CURRENT} && \
     chmod +x /opt/local/bin/docker-machine-${MACHINE_VERSION_CURRENT}
+
 RUN curl -L https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION_CURRENT}.tgz > /tmp/docker-${DOCKER_VERSION_CURRENT}.tgz && \
     cd /tmp && tar -xzf ./docker-${DOCKER_VERSION_CURRENT}.tgz && \
     rm /tmp/docker-${DOCKER_VERSION_CURRENT}.tgz && \
     mv /tmp/docker/docker /opt/local/bin/docker-${DOCKER_VERSION_CURRENT} && \
     chmod +x /opt/local/bin/docker-${DOCKER_VERSION_CURRENT}
+
 RUN curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION_CURRENT}/docker-compose-`uname -s`-`uname -m` > /opt/local/bin/docker-compose-${COMPOSE_VERSION_CURRENT} && \
     chmod +x /opt/local/bin/docker-compose-${COMPOSE_VERSION_CURRENT}
 
