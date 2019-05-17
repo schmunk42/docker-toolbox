@@ -7,7 +7,6 @@ Just the basic set of Docker tooling in a Docker image.
 - `docker-machine` https://github.com/docker/machine
 - `docker` (client only) https://github.com/docker/docker
 - `docker-compose` https://github.com/docker/compose
-- `docker-cloud` https://github.com/docker/compose
 
 see [CHANGELOG](CHANGELOG.md) for a version overview
 
