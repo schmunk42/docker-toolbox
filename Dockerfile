@@ -22,9 +22,9 @@ RUN apt-get update \
 RUN mkdir -p /opt/local/bin
 
 # v7.0
-ENV MACHINE_VERSION_CURRENT=0.15.0 \
-    DOCKER_VERSION_CURRENT=18.06.1-ce \
-    COMPOSE_VERSION_CURRENT=1.22.0
+ENV MACHINE_VERSION_CURRENT=0.16.1 \
+    DOCKER_VERSION_CURRENT=18.09.6 \
+    COMPOSE_VERSION_CURRENT=1.24.0
 
 RUN curl -L https://github.com/docker/machine/releases/download/v${MACHINE_VERSION_CURRENT}/docker-machine-`uname -s`-`uname -m` >/opt/local/bin/docker-machine-${MACHINE_VERSION_CURRENT} && \
     chmod +x /opt/local/bin/docker-machine-${MACHINE_VERSION_CURRENT}
