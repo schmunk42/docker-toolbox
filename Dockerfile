@@ -15,11 +15,12 @@ RUN apt-get update \
 RUN mkdir -p /opt/local/bin
 
 # v7.0
-ENV MACHINE_VERSION_CURRENT=0.16.2 \
+# Using GitLab's maintained fork of docker-machine: https://gitlab.com/gitlab-org/ci-cd/docker-machine
+ENV MACHINE_VERSION_CURRENT=0.16.2-gitlab.42 \
     DOCKER_VERSION_CURRENT=29.1.2 \
     COMPOSE_VERSION_CURRENT=2.40.3
 
-RUN curl -L https://github.com/docker/machine/releases/download/v${MACHINE_VERSION_CURRENT}/docker-machine-`uname -s`-`uname -m` >/opt/local/bin/docker-machine-${MACHINE_VERSION_CURRENT} && \
+RUN curl -L https://gitlab-docker-machine-downloads.s3.amazonaws.com/v${MACHINE_VERSION_CURRENT}/docker-machine-Linux-x86_64 >/opt/local/bin/docker-machine-${MACHINE_VERSION_CURRENT} && \
     chmod +x /opt/local/bin/docker-machine-${MACHINE_VERSION_CURRENT}
 
 RUN curl -L https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION_CURRENT}.tgz > /tmp/docker-${DOCKER_VERSION_CURRENT}.tgz && \
