@@ -9,7 +9,7 @@ after_script:
 test:
   stage: test
   script:
-    - docker compose build --pull --no-cache
+    - docker-compose build --pull --no-cache
     - docker-compose run --rm toolbox ls -la /opt/local/bin
     - docker-compose run --rm toolbox docker-machine version
     - docker-compose run --rm toolbox docker --version
