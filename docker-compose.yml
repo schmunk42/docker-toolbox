@@ -2,3 +2,4 @@ version: '2'
 services:
   toolbox:
     build: .
+    image: local/schmunk42/docker-toolbox
